@@ -22,7 +22,15 @@ const port = 3000;
 
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: function (origin, callback) {
+      const allowedOrigins = ['http://localhost:3001', 'http://example.com', 'https://example.com'];
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const message = 'The CORS policy for this site does not allow access from the specified origin.';
+        return callback(new Error(message), false);
+      }
+      return callback(null, true);
+    },
     credentials: true,
   })
 );

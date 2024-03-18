@@ -7,8 +7,8 @@ const secretKey = process.env.SECRETKEY ?? "";
 const userKey = process.env.MAIL_GUN_USER_KEY ?? ""; 
 const passKey = process.env.MAIL_GUN_PASS_KEY ?? ""; 
 
-console.log("credent user" + userKey)
-console.log("credent pass" + passKey)
+// console.log("credent user" + userKey)
+// console.log("credent pass" + passKey)
 
 // Fonction pour créer un utilisateur avec un rôle
 export async function createUserWithRole(name: string, email: string, code: any, password: string): Promise<void> {
